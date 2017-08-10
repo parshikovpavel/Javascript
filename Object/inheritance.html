@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+//Наследование свойств из прототипов
+
+var a = {
+	b: 1,
+	c: 2
+}
+
+var b = Object.create(a);
+
+b.e = 3;
+b.c = 4;
+
+a.c = 10;
+
+console.log(a, b);
+
+
+</script>
+</body>
+</html>
