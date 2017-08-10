@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+	//Создание объекта литералом
+var a = { b:1, c:2 };
+
+var b = {"this object": "new", "to object" :"old" };
+
+var c = { f: function() {}, e: Object.create(null)}; 
+
+//Создание объекта с помощью new
+var d = new Object(c);
+
+//Создание объекта с помощью Object.create() с указанием прототипа
+var e = Object.create(c);
+
+//изменение прототипа
+c.f = 12;
+
+//изменение наследника
+e.e = "vas";
+console.log(e.f);
+
+
+</script>
+</body>
+</html>
