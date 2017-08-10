@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+//Перебор в цикле for-in
+
+var temp = {
+	apple: {
+		price: 10,
+		number: 5
+	},
+	orange: {
+		price: 15,
+		number: 17
+	}
+}
+
+var products = Object.create(temp);
+
+var sum = 0;
+for(product in products) {
+	console.log(product);
+	let price = products[product].price;
+	let number = products[product].number;
+	console.log(price, number);
+	sum += price*number;
+}
+
+</script>
+</body>
+</html>
