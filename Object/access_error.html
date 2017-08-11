@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+	//Создание объекта литералом
+var post = { 
+	id: 10
+};
+
+console.log(post.title); //undefined
+
+//post.title.short; //Error
+
+var title = post && post.title;
+
+console.log(title); //undefined
+
+</script>
+</body>
+</html>
