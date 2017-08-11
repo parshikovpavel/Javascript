@@ -1,0 +1,47 @@
+<script>
+"use strict";
+var community = {
+	$owner : null,
+	get owner() { return 'com_' + this.$owner;},
+	set owner(name) { this.$owner = name.slice(4);},
+	get rand() {return Math.random(); }
+};
+console.log(Object.getOwnPropertyDescriptor(community, "$owner"));
+console.log(Object.getOwnPropertyDescriptor(community, "owner"));
+console.log(Object.getOwnPropertyDescriptor(community, "rand"));
+
+Object.defineProperty(community, "rand", {value: 0});
+console.log(community);
+Object.defineProperty(community, "log", {value: "start"});
+//community.log = "end"; //Неудачно, в строгом режиме ошибка
+console.log(community);
+
+//определение функции, копирующей свойства в другой объект с атрибутами
+Object.defineProperty(Object.prototype,"func",
+	{
+		writable: true,
+		enumerable: false,
+		configurable: false,
+		value: function(obj) {
+			var props = Object.getOwnPropertyNames(obj);
+			
+			for(let i = 0; i<props.length; i++) {
+				var desc = Object.getOwnPropertyDescriptor(obj, props[i]);
+				console.log(desc);
+				Object.defineProperty(this, props[i], desc);
+			}
+		}
+	}
+);
+
+var a = {p1: 1};
+var b = Object.defineProperties({},{
+	p2: {value: 2, writable: true, enumerable: true, configurable: true}
+});
+
+console.log(Object.getOwnPropertyDescriptor(b,'p2'))
+a.func(b);
+
+console.log(Object.getOwnPropertyDescriptor(a,'p2'));
+
+</script>

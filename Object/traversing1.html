@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+//Перебор свойств объектов
+
+//Перенос свойств объекта obj2 в объект obj1
+function extend(obj1, obj2)
+{
+	for(prop in obj2) {
+		obj1[prop] = obj2[prop];
+	}
+}
+
+//Перенос тех свойств объекта obj2 в объект obj1, которых нет в obj1
+function merge(obj1, obj2)
+{
+	for(prop in obj2) {
+		if(!(prop in obj1)) {
+			obj1[prop] = obj2[prop];
+		}
+	}
+}
+
+var a = {p1: 1, p2: 2};
+var b = {p2: 3, p4: 4};
+
+merge(a,b);
+console.log(a);
+
+
+</script>
+</body>
+</html>

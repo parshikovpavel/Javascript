@@ -1,0 +1,18 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+var community = {
+	$owner : null,
+	get owner() { return 'com_' + this.$owner},
+	set owner(name) { this.$owner = name.slice(4)},
+	get rand() {return Math.random(); }
+}
+community.owner = 'com_Alexey';
+console.log(community);
+console.log(community.rand);
+console.log(community.rand);
+</script>
+</body>
+</html>

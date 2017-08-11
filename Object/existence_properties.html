@@ -1,0 +1,34 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+	//Существование свойств
+var model = {
+	db: "cache"
+}
+
+var post = Object.create(model,{ 
+	id: {value: 10, enumerable: true},
+	text: {value: "123", enumerable: false}
+});
+
+//Проверка существования через IN
+console.log('db' in post); //true
+console.log('id' in post); //true
+
+//Проверка существования собственных свойств
+console.log(post.hasOwnProperty("id")); //true
+console.log(post.hasOwnProperty("db")); //false
+
+//Проверка существования собственных перечислимых свойств
+console.log(post.propertyIsEnumerable("id")); //true
+console.log(post.propertyIsEnumerable("text")); //false
+
+//Через !==undefined
+console.log(post.db !== undefined); //true
+console.log(post.why !== undefined); //false
+
+</script>
+</body>
+</html>
