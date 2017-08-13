@@ -1,0 +1,17 @@
+<script>
+"use strict";
+var o = {"id": 100, 
+		"user": null,
+		"comment": undefined,
+		"vasya": {toJSON: function() {return 1;}}, //вызывается JSON.stringify
+		"carma": 100.01,
+		"add": function() {}
+	};
+
+var json = JSON.stringify(o);
+console.log(json);
+
+console.log(JSON.parse(json));
+
+
+</script>

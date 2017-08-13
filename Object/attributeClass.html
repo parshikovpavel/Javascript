@@ -1,0 +1,9 @@
+<script>
+var obj = new Object;
+console.log(obj.toString());
+
+function classOf(obj) {
+	return Object.prototype.toString.call(obj).slice(8,-1);
+}
+console.log(classOf(new Date));
+</script>

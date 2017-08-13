@@ -1,0 +1,26 @@
+<script>
+"use strict";
+var obj1 = new Object;
+var obj2 = Object.create(obj1);
+obj2[2] = 1;
+obj2[3] = 1;
+Object.preventExtensions(obj2);
+//obj2[1] = 1; //error
+obj1[1] = 1; //добавление в прототип
+
+delete obj2[2];  //допустимо
+
+Object.seal(obj2);
+
+//delete obj2[3]; ошибка
+
+obj2[3] = 5;  //допустимо
+
+Object.freeze(obj2);
+
+//obj2[3] = 5;  //ошибка
+
+console.log(Object.getOwnPropertyDescriptor(obj2, '3'));
+
+console.log(obj2);
+</script>
